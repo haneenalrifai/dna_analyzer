@@ -65,7 +65,7 @@ class DNAFile:
         self.save_to_csv()
     _file_counter = 0  # class variable to count how many results we saved    
     def save_to_csv(self, output_file=None):
-        # 🔹 If no file name given, build one automatically based on the FASTA name
+        # 🔹 If no file name given, build one automatically 
         if output_file is None:
             # Increment the class counter
              DNAFile._file_counter += 1
@@ -86,4 +86,5 @@ class DNAFile:
             for record in SeqIO.parse(self.filepath, "fasta"):
                 seq = str(record.seq).upper()
                 writer.writerow([record.id, len(seq), self.gc_content(seq)])    
+
         print(f"\n💾 Results saved to '{os.path.abspath(full_path)}'")
